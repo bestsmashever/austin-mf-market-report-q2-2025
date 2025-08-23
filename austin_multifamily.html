@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austin Multifamily Investment Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 50px 0;
+            border-bottom: 3px solid #005395;
+            background: #005395;
+            color: #ffffff;
+            margin-left: -20px;
+            margin-right: -20px;
+            margin-top: -20px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .header h2 {
+            font-size: 28px;
+            font-weight: 400;
+            color: #005395;
+            margin-bottom: 24px;
+        }
+
+        .header .date {
+            font-size: 16px;
+            color: #cccccc;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-supply-demand {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5364 100%);
+            padding: 50px;
+            margin-bottom: 40px;
+            color: #ffffff;
+            border: 3px solid #005395;
+            text-align: center;
+        }
+
+        .hero-supply-demand h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0;
+        }
+
+        .hero-stat-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .hero-stat-label {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-stat-context {
+            font-size: 14px;
+            color: #cccccc;
+            font-style: italic;
+        }
+
+        .prepared-by {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 400;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .prepared-by a {
+            color: #ffffff;
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
+        }
+
+        .prepared-by a:hover {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        .investment-thesis {
+            background: #ffffff;
+            color: #000000;
+            padding: 45px;
+            margin-bottom: 50px;
+            border: 2px solid #005395;
+            border-radius: 0;
+            box-shadow: 0 4px 20px rgba(0, 83, 149, 0.1);
+        }
+
+        .investment-thesis h3 {
+            color: #005395;
+            font-size: 26px;
+            margin-bottom: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .investment-thesis p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+            color: #333333;
+        }
+
+        .thesis-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .thesis-point {
+            display: flex;
+            align-items: flex-start;
+            font-size: 15px;
+            color: #000000;
+            font-weight: 500;
+        }
+
+        .thesis-point::before {
+            content: "■";
+            color: #005395;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            color: #000000;
+            border: 2px solid #005395;
+            border-radius: 0;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 83, 149, 0.1);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 83, 149, 0.2);
+            background: #005395;
+            color: #ffffff;
+        }
+
+        .metric-card:hover .metric-value {
+            color: #ffffff;
+        }
+
+        .metric-card:hover .metric-label {
+            color: #ffffff;
+        }
+
+        .metric-card:hover .metric-context {
+            color: #cccccc;
+        }
+
+        .metric-value {
+            font-size: 44px;
+            font-weight: 700;
+            color: #005395;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+            transition: color 0.3s ease;
+        }
+
+        .metric-label {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .metric-context {
+            font-size: 14px;
+            color: #666666;
+            transition: color 0.3s ease;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 34px;
+            color: #000000;
+            margin-bottom: 35px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #005395;
+            padding-bottom: 12px;
+        }
+
+        .fundamentals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .fundamental-item {
+            background: #ffffff;
+            color: #000000;
+            padding: 35px;
+            border: 1px solid #005395;
+            border-radius: 0;
+            box-shadow: 0 2px 10px rgba(0, 83, 149, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .fundamental-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 83, 149, 0.2);
+            transform: translateY(-2px);
+            border-color: #003d70;
+        }
+
+        .fundamental-item h4 {
+            color: #005395;
+            font-size: 20px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .fundamental-item p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        .fundamental-item strong {
+            color: #005395;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: #005395;
+            padding: 45px;
+            border-radius: 0;
+            text-align: center;
+            margin: 50px 0;
+            color: #ffffff;
+            border: 3px solid #000000;
+        }
+
+        .highlight-box h3 {
+            font-size: 30px;
+            margin-bottom: 35px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .highlight-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+        }
+
+        .highlight-stat {
+            text-align: center;
+        }
+
+        .highlight-stat-value {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        .highlight-stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .supply-demand-section {
+            background: #f8f8f8;
+            color: #000000;
+            padding: 45px;
+            border-radius: 0;
+            margin-bottom: 50px;
+            border-left: 6px solid #005395;
+            box-shadow: 0 4px 20px rgba(0, 83, 149, 0.1);
+        }
+
+        .supply-demand-section .section-title {
+            color: #005395;
+            margin-bottom: 30px;
+        }
+
+        .chart-section {
+            margin-bottom: 30px;
+        }
+
+        .chart-container {
+            background: #ffffff;
+            border: 2px solid #005395;
+            padding: 25px;
+            border-radius: 0;
+            box-shadow: 0 2px 10px rgba(0, 83, 149, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .chart-container h4 {
+            color: #005395;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .chart-container canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 50px 0;
+            border-top: 3px solid #005395;
+            margin-top: 60px;
+            background: #000000;
+            color: #ffffff;
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        .positive {
+            color: #005395 !important;
+        }
+
+        .warning {
+            color: #005395 !important;
+        }
+
+        /* Professional scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #005395;
+            border-radius: 0;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #003d70;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 42px;
+            }
+            .header h2 {
+                font-size: 22px;
+            }
+            .thesis-points {
+                grid-template-columns: 1fr;
+            }
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .fundamentals-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 16px;
+            }
+            .investment-thesis,
+            .fundamental-item,
+            .supply-demand-section {
+                padding: 28px;
+            }
+            .highlight-box {
+                padding: 32px;
+            }
+            .header,
+            .footer {
+                margin-left: -16px;
+                margin-right: -16px;
+            }
+            .header {
+                margin-top: -16px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .metrics-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Clean animations */
+        .metric-card, .fundamental-item, .investment-thesis, .supply-demand-section, .positioning-item {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Market Positioning Section */
+        .market-positioning-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 50px;
+            margin: 50px 0;
+            border: 1px solid #e9ecef;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .market-positioning-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #005395 0%, #1a365d 50%, #005395 100%);
+        }
+
+        /* Market Positioning Grid */
+        .market-positioning-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .positioning-item {
+            background: #ffffff;
+            color: #000000;
+            padding: 40px;
+            border: 2px solid #005395;
+            border-radius: 0;
+            box-shadow: 0 4px 15px rgba(0, 83, 149, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-left: 6px solid #005395;
+        }
+
+        .positioning-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #005395 0%, #1a365d 100%);
+        }
+
+        .positioning-item:hover {
+            box-shadow: 0 6px 25px rgba(0, 83, 149, 0.25);
+            transform: translateY(-3px);
+            border-color: #003d70;
+        }
+
+        .positioning-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .positioning-rank {
+            background: linear-gradient(135deg, #005395 0%, #1a365d 100%);
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 700;
+            padding: 15px 20px;
+            border-radius: 0;
+            min-width: 80px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 83, 149, 0.3);
+            position: relative;
+        }
+
+        .positioning-rank::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #005395 0%, #1a365d 100%);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .positioning-item h4 {
+            color: #005395;
+            font-size: 22px;
+            margin: 0;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .positioning-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333333;
+            margin: 0;
+        }
+
+        .positioning-item strong {
+            color: #005395;
+            font-weight: 700;
+        }
+
+        /* Responsive adjustments for market positioning */
+        @media (max-width: 768px) {
+            .market-positioning-section {
+                padding: 30px 20px;
+                margin: 30px 0;
+            }
+            
+            .market-positioning-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .positioning-item {
+                padding: 30px;
+            }
+            
+            .positioning-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .positioning-rank {
+                font-size: 28px;
+                padding: 12px 16px;
+                min-width: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AUSTIN MULTIFAMILY</h1>
+            <h2>Investment Opportunity Summary</h2>
+            <div class="date">Q2 2025 Market Intelligence Report</div>
+            <div class="prepared-by">Prepared by <a href="https://www.presidiumre.com/" target="_blank" rel="noopener noreferrer">Presidium</a></div>
+        </div>
+
+
+
+        <div class="investment-thesis">
+            <h3>Investment Thesis - Supply-Demand Imbalance</h3>
+            <p>Austin's multifamily market is on the verge of a powerful reset. The metro is still digesting 9,376 excess units from the 2023–2024 delivery surge, with another 19,596 units scheduled through 2027. Yet demand is extraordinary, with 30,253 units absorbed over the past four quarters — more than enough to clear both the surplus and future pipeline. On the supply side, construction starts have collapsed 91% from the 24,712 units kicked off in 2022 to just 680 units in Q2 2025, and the active pipeline of 18,029 units under construction is down 65% from peak and well below the 10-year average of 26,871 units. A supply cliff is in sight, creating a rare entry window before Austin's strong fundamentals drive the next rent growth cycle.</p>
+        </div>
+
+        <div class="supply-demand-section">
+            <h3 class="section-title">Supply Cliff Opportunity</h3>
+            
+            <div class="chart-section">
+                <div class="chart-container">
+                    <h4>Austin's Robust Demand Continues</h4>
+                    <canvas id="supplyDemandChart" width="800" height="400"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <div class="chart-container">
+                    <h4>Austin multi-housing starts</h4>
+                    <canvas id="constructionChart" width="800" height="400"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <div class="chart-container">
+                    <h4>Delivery Pipeline Exhaustion</h4>
+                    <canvas id="pipelineChart" width="800" height="400"></canvas>
+                </div>
+            </div>
+
+            <div class="fundamentals-grid">
+                <div class="fundamental-item">
+                    <h4>Pipeline Contraction</h4>
+                    <p>Construction starts have collapsed <strong>91% from the 2022 peak of 24,712 units</strong> to just 680 units in Q2 2025, ensuring a sharp pipeline contraction ahead. Only <strong>3,526 units are scheduled for 2027 delivery</strong>, setting up near-term supply scarcity despite strong absorption trends.</p>
+                </div>
+                <div class="fundamental-item">
+                    <h4>Historical Recovery Pattern</h4>
+                    <p>Previous rent cycles show <strong>6-8 quarter recovery periods</strong>. Current effective rents 15% below peak but still 17% above pre-pandemic levels, suggesting market normalization rather than fundamental deterioration.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="section">
+            <h3 class="section-title">Market Fundamentals</h3>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value positive">33.3%</div>
+                    <div class="metric-label">POPULATION GROWTH</div>
+                    <div class="metric-context">2015-2025 | #1 Nationally</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value positive">48%</div>
+                    <div class="metric-label">EMPLOYMENT GROWTH</div>
+                    <div class="metric-context">10-year | Leading All Major US Cities</div>
+            </div>
+                <div class="metric-card">
+                    <div class="metric-value positive">93.9%</div>
+                    <div class="metric-label">STABILIZED OCCUPANCY</div>
+                    <div class="metric-context">Q2 2025 | Rising QoQ</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value positive">$104,066</div>
+                    <div class="metric-label">MEDIAN HOUSEHOLD INCOME</div>
+                    <div class="metric-context">25% Above National Average</div>
+                </div>
+            </div>
+            
+            <!-- Demographic & Economic Drivers -->
+            <div class="fundamentals-grid">
+                <div class="fundamental-item">
+                    <h4>Population & Migration</h4>
+                    <p><strong>13,620 new young adults (20-34)</strong> added YoY, representing core renter demographic. Austin forecasted to reach <strong>3M population by 2033</strong> with continued strong in-migration from gateway markets experiencing net outflows.</p>
+                </div>
+                <div class="fundamental-item">
+                    <h4>Employment & Economic Base</h4>
+                    <p>Robust employment base led by <strong>technology, government, and professional services</strong>. Major employers include UT System (19,514), Dell (18,371), Apple (10,004), and Amazon (8,294), providing employment stability across economic cycles.</p>
+                </div>
+            </div>
+
+            <!-- Market Performance Metrics -->
+            <div class="fundamentals-grid">
+                <div class="fundamental-item">
+                    <h4>Market Performance</h4>
+                    <p>Austin maintains <strong>lowest rent-to-income ratio</strong> among major US metros at 16.8%, with 42% renter population providing substantial addressable market for multifamily investment strategies.</p>
+                </div>
+                <div class="fundamental-item">
+                    <h4>Supply-Demand Dynamics</h4>
+                    <p>H1 2025 absorption of <strong>12,453 units exceeded supply by 3,000 units</strong>. Construction starts down 91% from peak, creating favorable supply dynamics for existing asset performance and rent growth acceleration.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section market-positioning-section">
+            <h3 class="section-title">Market Positioning: Austin Ranks Nationally</h3>
+            <div class="market-positioning-grid">
+                <div class="positioning-item">
+                    <div class="positioning-header">
+                        <div class="positioning-rank">#2</div>
+                        <h4>Absorption Rate</h4>
+                    </div>
+                    <p><strong>Nationally</strong> in absorption rate, demonstrating Austin's exceptional ability to absorb new multifamily units compared to other major US markets.</p>
+                </div>
+                <div class="positioning-item">
+                    <div class="positioning-header">
+                        <div class="positioning-rank">#5</div>
+                        <h4>Nominal Demand</h4>
+                    </div>
+                    <p><strong>Nationally</strong> in nominal demand, reflecting the strong underlying demand for multifamily housing in the Austin metro area.</p>
+                </div>
+                <div class="positioning-item">
+                    <div class="positioning-header">
+                        <div class="positioning-rank">#7</div>
+                        <h4>Domestic Migration</h4>
+                    </div>
+                    <p><strong>Nationally</strong> in domestic migration, indicating continued strong in-migration patterns that support long-term multifamily demand.</p>
+                </div>
+                <div class="positioning-item">
+                    <div class="positioning-header">
+                        <div class="positioning-rank">16.8%</div>
+                        <h4>Rent Affordability</h4>
+                    </div>
+                    <p><strong>Rent-to-income ratio</strong>, maintaining the lowest ratio among major US metros and providing substantial addressable market for multifamily investment.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/2.1.0/chartjs-plugin-annotation.min.js"></script>
+        <script>
+        // Chart 1: Supply & Demand - IMPROVED COLOR CONTRAST
+        const ctx1 = document.getElementById('supplyDemandChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', 'H1 2025'],
+                datasets: [{
+                    label: 'Supply',
+                    data: [9176, 9510, 9953, 9000, 9009, 10496, 12252, 14128, 14571, 30607, 9550],
+                    backgroundColor: '#1a202c',
+                    borderColor: '#1a202c',
+                    borderWidth: 1
+                }, {
+                    label: 'Demand',
+                    data: [8181, 7595, 7130, 10471, 9697, 6104, 20357, 4303, 9088, 28841, 12453],
+                    backgroundColor: '#005395',
+                    borderColor: '#005395',
+                    borderWidth: 1
+                }, {
+                    label: '10-Year Average Demand',
+                    data: [11500, 11500, 11500, 11500, 11500, 11500, 11500, 11500, 11500, 11500, 11500],
+                    type: 'line',
+                    borderColor: '#005395',
+                    borderWidth: 3,
+                    borderDash: [8, 4],
+                    fill: false,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'H1 2025: +2,903 Units Net Absorption',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        color: '#005395'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 35000,
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart 2: Construction Starts
+        const ctx2 = document.getElementById('constructionChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Q1 2018', 'Q2 2018', 'Q3 2018', 'Q4 2018', 'Q1 2019', 'Q2 2019', 'Q3 2019', 'Q4 2019', 
+                        'Q1 2020', 'Q2 2020', 'Q3 2020', 'Q4 2020', 'Q1 2021', 'Q2 2021', 'Q3 2021', 'Q4 2021',
+                        'Q1 2022', 'Q2 2022', 'Q3 2022', 'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023',
+                        'Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025', 'Q2 2025'],
+                datasets: [{
+                    label: 'Quarterly Starts',
+                    data: [1500, 2800, 2400, 2100, 4600, 3000, 2900, 4700, 3300, 3500, 3800, 7000, 4300, 7600, 7200, 6500,
+                          3200, 2400, 2600, 3300, 3200, 1000, 2200, 1300, 2000, 1200, 1400, 900, 1200, 680],
+                    borderColor: '#005395',
+                    backgroundColor: 'rgba(0, 83, 149, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Pre-Pandemic Average (2014-2019) 2,616 Units',
+                    data: Array(30).fill(2616),
+                    type: 'line',
+                    borderColor: '#005395',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    fill: false,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 8000,
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart 3: Delivery Pipeline - CORRECTED 2028 DATA
+        const ctx3 = document.getElementById('pipelineChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: ['Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26', 'Jun 26', 'Jul 26', 'Aug 26', 'Sep 26', 'Oct 26', 'Nov 26', 'Dec 26', 'Jan 27', 'Feb 27', 'Mar 27', 'Apr 27', 'May 27', 'Jun 27', 'Jul 27', 'Aug 27', 'Sep 27', 'Oct 27', 'Nov 27', 'Dec 27', 'Jan 28', 'Feb 28', 'Mar 28', 'Apr 28', 'May 28', 'Jun 28', 'Jul 28', 'Aug 28'],
+                datasets: [{
+                    label: 'Under Construction',
+                    data: [1600, 700, 650, 950, 350, 850, 950, 350, 1600, 350, 1650, 450, 1100, 1050, 600, 600, 800, 600, 600, 350, 300, 550, 700, 1100, 650, 450, 0, 0, 0, 0, 0, 1250, 0, 0, 0, 0, 450],
+                    backgroundColor: '#2c5282',
+                    borderWidth: 0
+                }, {
+                    label: 'Under Construction/Lease-Up',
+                    data: [0, 1100, 950, 800, 650, 350, 550, 0, 150, 0, 0, 0, 0, 350, 500, 450, 600, 800, 600, 450, 500, 150, 0, 0, 0, 0, 450, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: '#63b3ed',
+                    borderWidth: 0
+                }, {
+                    label: 'Planned',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 550, 550, 600, 0, 650, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: '#bee3f8',
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: '2025 Remaining: 7,347 | 2026: 9,951 | 2027: 3,526 | 2028: 833',
+                        font: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        color: '#005395'
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 45,
+                            font: {
+                                size: 10
+                            }
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        beginAtZero: true,
+                        max: 2000,
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                elements: {
+                    bar: {
+                        borderWidth: 0
+                    }
+                }
+            }
+        });
+        </script>
+
+        <div class="section">
+            <h3 class="section-title">Investment Environment</h3>
+            <div class="fundamentals-grid">
+                <div class="fundamental-item">
+                    <h4>27% Valuation Discount</h4>
+                    <p>Cap rates expanded <strong>27% from peak</strong> (vs 31% in GFC), creating significant acquisition opportunity. Current core cap rates: 4.25-4.75%, with compressed valuations relative to replacement cost in select markets.</p>
+                </div>
+
+                <div class="fundamental-item">
+                    <h4>$2.4B Transaction Volume</h4>
+                    <p>Austin H1 2025 volume of <strong>$2.4B</strong> with deeper bidder pools and 5-10% bid increases from first offer to award, indicating strong investor demand and competitive acquisition environment.</p>
+                </div>
+                <div class="fundamental-item">
+                    <h4>7.3% Employment Growth Projection</h4>
+                    <p>Austin projected <strong>7.3% employment growth and 17.1% GDP growth</strong> over next 5 years, significantly outperforming national averages of 2.4% and 12.1% respectively, supporting long-term investment thesis.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-logo">Austin Multifamily Investment Opportunity</div>
+            <div class="footer-text">
+                Strategic positioning at market inflection point | Source: JLL Research Q2 2025
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+</html>
