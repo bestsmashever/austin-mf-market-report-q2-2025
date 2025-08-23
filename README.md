@@ -1,4 +1,4 @@
-# Austin Multifamily Market Report Q1 & Q2 2025
+# Austin Multifamily Market Report Q2 2025
 
 A comprehensive market analysis report for the Austin multifamily real estate market covering Q1 and Q2 of 2025.
 
