@@ -135,31 +135,7 @@
             text-decoration: none;
         }
 
-        .investment-thesis {
-            background: #ffffff;
-            color: #000000;
-            padding: 45px;
-            margin-bottom: 50px;
-            border: 2px solid #005395;
-            border-radius: 0;
-            box-shadow: 0 4px 20px rgba(0, 83, 149, 0.1);
-        }
 
-        .investment-thesis h3 {
-            color: #005395;
-            font-size: 26px;
-            margin-bottom: 24px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .investment-thesis p {
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 28px;
-            color: #333333;
-        }
 
         .thesis-points {
             display: grid;
@@ -263,8 +239,9 @@
 
         .fundamentals-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
         .fundamental-item {
@@ -346,20 +323,7 @@
             color: #ffffff;
         }
 
-        .supply-demand-section {
-            background: #f8f8f8;
-            color: #000000;
-            padding: 45px;
-            border-radius: 0;
-            margin-bottom: 50px;
-            border-left: 6px solid #005395;
-            box-shadow: 0 4px 20px rgba(0, 83, 149, 0.1);
-        }
 
-        .supply-demand-section .section-title {
-            color: #005395;
-            margin-bottom: 30px;
-        }
 
         .chart-section {
             margin-bottom: 30px;
@@ -459,9 +423,7 @@
             .container {
                 padding: 16px;
             }
-            .investment-thesis,
-            .fundamental-item,
-            .supply-demand-section {
+            .fundamental-item {
                 padding: 28px;
             }
             .highlight-box {
@@ -490,8 +452,83 @@
             }
         }
 
+        /* Enhanced Metric Cards with Hover Details */
+        .metric-card.enhanced {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            min-height: 160px;
+        }
+
+        .metric-card.enhanced:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 83, 149, 0.25);
+            background: #005395;
+            color: #ffffff;
+        }
+
+        .metric-card.enhanced:hover .metric-value {
+            color: #ffffff;
+        }
+
+        .metric-card.enhanced:hover .metric-label {
+            color: #ffffff;
+        }
+
+        .metric-card.enhanced:hover .metric-context {
+            color: #cccccc;
+        }
+
+        .metric-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #005395;
+            color: #ffffff;
+            padding: 40px 35px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .metric-card.enhanced:hover .metric-details {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .metric-details {
+            padding: 40px 35px;
+        }
+
+        .metric-details .clean-list {
+            margin: 0;
+        }
+
+        .metric-details .clean-list li {
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .metric-details .clean-list li::before {
+            color: #ffffff;
+        }
+
+        .metric-details .clean-list li strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
         /* Clean animations */
-        .metric-card, .fundamental-item, .investment-thesis, .supply-demand-section, .positioning-item {
+        .metric-card, .fundamental-item {
             animation: slideIn 0.6s ease-out;
         }
 
@@ -511,143 +548,191 @@
             font-family: 'Arial', sans-serif;
         }
 
-        /* Market Positioning Section */
-        .market-positioning-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        /* Market Fundamentals Section - Clean Design */
+        .market-fundamentals-section {
+            background: #ffffff;
             padding: 50px;
-            margin: 50px 0;
-            border: 1px solid #e9ecef;
+            border: 2px solid #005395;
             border-radius: 0;
             position: relative;
         }
 
-        .market-positioning-section::before {
+        .market-fundamentals-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 6px;
-            background: linear-gradient(90deg, #005395 0%, #1a365d 50%, #005395 100%);
+            background: #005395;
         }
 
-        /* Market Positioning Grid */
-        .market-positioning-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .positioning-item {
+        .fundamental-item.clean {
             background: #ffffff;
-            color: #000000;
-            padding: 40px;
-            border: 2px solid #005395;
+            border: 1px solid #e2e8f0;
             border-radius: 0;
-            box-shadow: 0 4px 15px rgba(0, 83, 149, 0.15);
+            padding: 35px;
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-            border-left: 6px solid #005395;
         }
 
-        .positioning-item::before {
-            content: '';
+        .fundamental-item.clean:hover {
+            border-color: #005395;
+            box-shadow: 0 4px 20px rgba(0, 83, 149, 0.1);
+        }
+
+        .fundamental-item.clean h4 {
+            color: #005395;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+
+        .clean-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .clean-list li {
+            position: relative;
+            padding: 8px 0 8px 20px;
+            margin-bottom: 6px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        .clean-list li::before {
+            content: "•";
             position: absolute;
-            top: 0;
             left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #005395 0%, #1a365d 100%);
+            top: 8px;
+            color: #005395;
+            font-size: 18px;
+            font-weight: bold;
         }
 
-        .positioning-item:hover {
-            box-shadow: 0 6px 25px rgba(0, 83, 149, 0.25);
-            transform: translateY(-3px);
+        .clean-list li strong {
+            color: #005395;
+            font-weight: 700;
+        }
+
+        /* Comparison Table Styles */
+        .comparison-table-container {
+            background: #ffffff;
+            border: 2px solid #005395;
+            border-radius: 0;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 83, 149, 0.1);
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .comparison-table th {
+            background: #005395;
+            color: #ffffff;
+            padding: 15px 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid #003d70;
+        }
+
+        .comparison-table th:first-child {
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 15px 12px;
+            border: 1px solid #e2e8f0;
+            font-weight: 500;
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 700;
+            color: #005395;
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #e3f2fd;
+        }
+
+        .total-row {
+            background: #005395 !important;
+            color: #ffffff;
+        }
+
+        .total-row td {
+            color: #ffffff;
+            font-weight: 700;
             border-color: #003d70;
         }
 
-        .positioning-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            gap: 20px;
-        }
-
-        .positioning-rank {
-            background: linear-gradient(135deg, #005395 0%, #1a365d 100%);
+        .total-row td:first-child {
             color: #ffffff;
-            font-size: 32px;
-            font-weight: 700;
-            padding: 15px 20px;
-            border-radius: 0;
-            min-width: 80px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 83, 149, 0.3);
-            position: relative;
         }
 
-        .positioning-rank::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, #005395 0%, #1a365d 100%);
-            z-index: -1;
-            opacity: 0.3;
-        }
-
-        .positioning-item h4 {
-            color: #005395;
-            font-size: 22px;
-            margin: 0;
-            font-weight: 700;
-            flex: 1;
-        }
-
-        .positioning-item p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333333;
-            margin: 0;
-        }
-
-        .positioning-item strong {
-            color: #005395;
+        .positive {
+            color: #28a745 !important;
             font-weight: 700;
         }
 
-        /* Responsive adjustments for market positioning */
+        .warning {
+            color: #dc3545 !important;
+            font-weight: 700;
+        }
+
         @media (max-width: 768px) {
-            .market-positioning-section {
-                padding: 30px 20px;
-                margin: 30px 0;
+            .comparison-table-container {
+                padding: 20px;
+                margin-bottom: 20px;
             }
             
-            .market-positioning-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .comparison-table {
+                font-size: 14px;
             }
             
-            .positioning-item {
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 8px;
+            }
+
+            .market-fundamentals-section {
                 padding: 30px;
             }
-            
-            .positioning-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
+
+            .fundamental-item.clean {
+                padding: 25px;
             }
-            
-            .positioning-rank {
-                font-size: 28px;
-                padding: 12px 16px;
-                min-width: 70px;
+
+            .fundamental-item.clean h4 {
+                font-size: 18px;
+            }
+
+            .clean-list li {
+                font-size: 14px;
+                padding: 6px 0 6px 18px;
             }
         }
+
+        
     </style>
 </head>
 <body>
@@ -661,13 +746,17 @@
 
 
 
-        <div class="investment-thesis">
-            <h3>Investment Thesis - Supply-Demand Imbalance</h3>
-            <p>Austin's multifamily market is on the verge of a powerful reset. The metro is still digesting 9,376 excess units from the 2023–2024 delivery surge, with another 19,596 units scheduled through 2027. Yet demand is extraordinary, with 30,253 units absorbed over the past four quarters — more than enough to clear both the surplus and future pipeline. On the supply side, construction starts have collapsed 91% from the 24,712 units kicked off in 2022 to just 680 units in Q2 2025, and the active pipeline of 18,029 units under construction is down 65% from peak and well below the 10-year average of 26,871 units. A supply cliff is in sight, creating a rare entry window before Austin's strong fundamentals drive the next rent growth cycle.</p>
-        </div>
-
-        <div class="supply-demand-section">
-            <h3 class="section-title">Supply Cliff Opportunity</h3>
+        <div class="section">
+            <h3 class="section-title">Investment Thesis - Supply-Demand Imbalance</h3>
+            <ul style="font-size: 18px; line-height: 1.7; margin-bottom: 28px; color: #333333; padding-left: 20px;">
+                <li style="margin-bottom: 20px;"><strong>Rent & Occupancy:</strong> Austin's rental market has clearly stabilized. Occupancy rose from 93.0% in Q1 to 93.9% in Q2, while average effective rents held essentially flat ($1,461 → $1,453). Importantly, Class A rents showed resilience with only a -1.8% YoY decline, signaling that demand for higher-end units remains strong. This quarter marks the first indication that rent declines have bottomed and the market is setting a foundation for recovery.</li>
+                <li style="margin-bottom: 20px;"><strong>Demand:</strong> Absorption continues to outpace supply at record levels. In the first half of 2025, Austin absorbed over 12,000 units, exceeding new deliveries by nearly 3,000 units. Nationally, Austin ranked #2 in absorption as a % of inventory and #5 in total units absorbed. This builds on 2024's extraordinary absorption of 28,841 units, proving that Austin can digest new supply while still tightening occupancy.</li>
+                <li style="margin-bottom: 20px;"><strong>Construction Pipeline:</strong> The pipeline is shrinking rapidly, setting up a classic supply squeeze. Units under construction fell from 20,575 in Q1 to 18,029 in Q2, down 65% from peak and far below the 10-year average of ~27,000. With just 680 starts in Q2 (a 91% drop from 2022's peak), future deliveries are collapsing — only 3,526 units scheduled for 2027. At today's absorption rate (~24,000 units annualized), Austin could clear its entire pipeline in under 10 months, creating powerful tailwinds for rent growth.</li>
+                <li style="margin-bottom: 20px;"><strong>Affordability:</strong> Austin remains one of the most affordable large metros in the U.S., giving it structural rent growth headroom. The metro's rent-to-income ratio is just 16.8% on a median household income of ~$104K, compared to 20–25% in other Sunbelt markets and 30–40% in coastal cities. Even after the recent moderation, effective rents remain 17% above pre-pandemic averages, showing that Austin has pricing power to support long-term growth without breaching affordability.</li>
+                <li style="margin-bottom: 0px;"><strong>For-Sale Housing Pressure:</strong> The cost of homeownership has become increasingly prohibitive, reinforcing renter demand. Austin's median home price climbed to $443,010 in Q2 (up from $425,333 in Q1), and with interest rates elevated, monthly mortgage payments are now 45% higher than average rents — and that excludes taxes, insurance, and maintenance. This widening rent-own gap ensures that many households remain locked in the rental pool, extending multifamily demand tailwinds well into the next cycle.</li>
+            </ul>
+            
+            <h4 style="color: #005395; font-size: 24px; margin: 40px 0 25px 0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Supply Cliff Opportunity</h4>
             
             <div class="chart-section">
                 <div class="chart-container">
@@ -690,104 +779,146 @@
                 </div>
             </div>
 
-            <div class="fundamentals-grid">
-                <div class="fundamental-item">
-                    <h4>Pipeline Contraction</h4>
-                    <p>Construction starts have collapsed <strong>91% from the 2022 peak of 24,712 units</strong> to just 680 units in Q2 2025, ensuring a sharp pipeline contraction ahead. Only <strong>3,526 units are scheduled for 2027 delivery</strong>, setting up near-term supply scarcity despite strong absorption trends.</p>
-                </div>
-                <div class="fundamental-item">
-                    <h4>Historical Recovery Pattern</h4>
-                    <p>Previous rent cycles show <strong>6-8 quarter recovery periods</strong>. Current effective rents 15% below peak but still 17% above pre-pandemic levels, suggesting market normalization rather than fundamental deterioration.</p>
-                </div>
-            </div>
+                         <div class="fundamentals-grid">
+                 <div class="fundamental-item">
+                     <h4>Pipeline Contraction</h4>
+                     <ul style="padding-left: 20px; margin: 0;">
+                         <li>Construction starts collapsed <strong>91% from 2022 peak</strong> (24,712 → 680 units in Q2 2025)</li>
+                         <li>Only <strong>3,526 units scheduled for 2027 delivery</strong></li>
+                         <li>Near-term supply scarcity despite strong absorption trends</li>
+                     </ul>
+                 </div>
+                 <div class="fundamental-item">
+                     <h4>Historical Recovery Pattern</h4>
+                     <ul style="padding-left: 20px; margin: 0;">
+                         <li>Previous rent cycles show <strong>6-8 quarter recovery periods</strong></li>
+                         <li>Current effective rents 15% below peak but 17% above pre-pandemic levels</li>
+                         <li>Market normalization rather than fundamental deterioration</li>
+                     </ul>
+                 </div>
+             </div>
         </div>
 
+         <!-- Rent & Occupancy Comparison Table -->
+         <div class="section">
+             <h3 class="section-title">Rent & Occupancy Trends by Property Class</h3>
+             <div class="comparison-table-container">
+                 <table class="comparison-table">
+                     <thead>
+                         <tr>
+                             <th>Property Class</th>
+                             <th colspan="2">Q1 2025</th>
+                             <th colspan="2">Q2 2025</th>
+                             <th>QoQ Change</th>
+                         </tr>
+                         <tr>
+                             <th></th>
+                             <th>Rent</th>
+                             <th>Occupancy</th>
+                             <th>Rent</th>
+                             <th>Occupancy</th>
+                             <th>Rent | Occupancy</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td><strong>Class A</strong></td>
+                             <td>$2,028</td>
+                             <td>93.10%</td>
+                             <td>$2,034</td>
+                             <td>93.80%</td>
+                             <td class="positive">+$6 | +0.70%</td>
+                         </tr>
+                         <tr>
+                             <td><strong>Class B</strong></td>
+                             <td>$1,398</td>
+                             <td>92.40%</td>
+                             <td>$1,393</td>
+                             <td>93.20%</td>
+                             <td class="warning">-$5 | +0.80%</td>
+                         </tr>
+                         <tr>
+                             <td><strong>Class C</strong></td>
+                             <td>$1,249</td>
+                             <td>93.00%</td>
+                             <td>$1,205</td>
+                             <td>93.90%</td>
+                             <td class="warning">-$44 | +0.90%</td>
+                         </tr>
+                         <tr class="total-row">
+                             <td><strong>Austin Total</strong></td>
+                             <td>$1,461</td>
+                             <td>94.00%</td>
+                             <td>$1,453</td>
+                             <td>95.10%</td>
+                             <td class="warning">-$8 | +1.10%</td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
+             
+                                                       <div class="fundamentals-grid" style="margin-top: 30px;">
+                   <div class="fundamental-item">
+                       <h4>Key Observations</h4>
+                       <ul style="padding-left: 20px; margin: 0;">
+                           <li><strong>Occupancy:</strong> Rose from 93.0% → 93.9%</li>
+                           <li><strong>Rents:</strong> Flat/slightly down overall, but Class A rents more resilient in Q2</li>
+                           <li>Overall <strong>occupancy improvement of 1.10%</strong> across Austin demonstrates strong demand fundamentals</li>
+                       </ul>
+                   </div>
+               </div>
+         </div>
 
 
-        <div class="section">
-            <h3 class="section-title">Market Fundamentals</h3>
-            
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-value positive">33.3%</div>
-                    <div class="metric-label">POPULATION GROWTH</div>
-                    <div class="metric-context">2015-2025 | #1 Nationally</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value positive">48%</div>
-                    <div class="metric-label">EMPLOYMENT GROWTH</div>
-                    <div class="metric-context">10-year | Leading All Major US Cities</div>
-            </div>
-                <div class="metric-card">
-                    <div class="metric-value positive">93.9%</div>
-                    <div class="metric-label">STABILIZED OCCUPANCY</div>
-                    <div class="metric-context">Q2 2025 | Rising QoQ</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value positive">$104,066</div>
-                    <div class="metric-label">MEDIAN HOUSEHOLD INCOME</div>
-                    <div class="metric-context">25% Above National Average</div>
-                </div>
-            </div>
-            
-            <!-- Demographic & Economic Drivers -->
-            <div class="fundamentals-grid">
-                <div class="fundamental-item">
-                    <h4>Population & Migration</h4>
-                    <p><strong>13,620 new young adults (20-34)</strong> added YoY, representing core renter demographic. Austin forecasted to reach <strong>3M population by 2033</strong> with continued strong in-migration from gateway markets experiencing net outflows.</p>
-                </div>
-                <div class="fundamental-item">
-                    <h4>Employment & Economic Base</h4>
-                    <p>Robust employment base led by <strong>technology, government, and professional services</strong>. Major employers include UT System (19,514), Dell (18,371), Apple (10,004), and Amazon (8,294), providing employment stability across economic cycles.</p>
-                </div>
-            </div>
 
-            <!-- Market Performance Metrics -->
-            <div class="fundamentals-grid">
-                <div class="fundamental-item">
-                    <h4>Market Performance</h4>
-                    <p>Austin maintains <strong>lowest rent-to-income ratio</strong> among major US metros at 16.8%, with 42% renter population providing substantial addressable market for multifamily investment strategies.</p>
+                                                                       <div class="section">
+               <h3 class="section-title">Market Fundamentals</h3>
+              
+                                             <!-- Market Fundamentals Grid -->
+                <div class="fundamentals-grid">
+                    <div class="metric-card enhanced" data-details="population">
+                        <div class="metric-value positive">33.3%</div>
+                        <div class="metric-label">POPULATION GROWTH</div>
+                        <div class="metric-context">2015-2025 | #1 Nationally</div>
+                                                 <div class="metric-details" id="population-details">
+                             <ul class="clean-list">
+                                 <li><strong>13,620 new young adults (20-34)</strong> added YoY, representing core renter demographic</li>
+                                 <li>Austin forecasted to reach <strong>3M population by 2033</strong></li>
+                                 <li>Continued strong in-migration from gateway markets experiencing net outflows</li>
+                             </ul>
+                         </div>
+                    </div>
+                    
+                    <div class="metric-card enhanced" data-details="employment">
+                        <div class="metric-value positive">48%</div>
+                        <div class="metric-label">EMPLOYMENT GROWTH</div>
+                        <div class="metric-context">10-year | Leading All Major US Cities</div>
+                                                 <div class="metric-details" id="employment-details">
+                             <ul class="clean-list">
+                                 <li>Robust employment base led by <strong>tech, government, and professional services</strong></li>
+                                 <li>Major employers: <strong>UT System (19,514), Dell (18,371), Apple (10,004), Amazon (8,294)</strong></li>
+                                 <li>Employment stability across economic cycles</li>
+                             </ul>
+                         </div>
+                    </div>
+                    
+                    <div class="metric-card enhanced" data-details="income">
+                        <div class="metric-value positive">$104,066</div>
+                        <div class="metric-label">MEDIAN HOUSEHOLD INCOME</div>
+                        <div class="metric-context">25% Above National Average</div>
+                                                 <div class="metric-details" id="income-details">
+                             <ul class="clean-list">
+                                 <li>Austin maintains <strong>lowest rent-to-income ratio</strong> among major US metros at <strong>16.8%</strong></li>
+                                 <li><strong>42% renter population</strong> provides substantial addressable market for multifamily investment strategies</li>
+                             </ul>
+                         </div>
+                    </div>
                 </div>
-                <div class="fundamental-item">
-                    <h4>Supply-Demand Dynamics</h4>
-                    <p>H1 2025 absorption of <strong>12,453 units exceeded supply by 3,000 units</strong>. Construction starts down 91% from peak, creating favorable supply dynamics for existing asset performance and rent growth acceleration.</p>
-                </div>
-            </div>
-        </div>
+          </div>
 
-        <div class="section market-positioning-section">
-            <h3 class="section-title">Market Positioning: Austin Ranks Nationally</h3>
-            <div class="market-positioning-grid">
-                <div class="positioning-item">
-                    <div class="positioning-header">
-                        <div class="positioning-rank">#2</div>
-                        <h4>Absorption Rate</h4>
-                    </div>
-                    <p><strong>Nationally</strong> in absorption rate, demonstrating Austin's exceptional ability to absorb new multifamily units compared to other major US markets.</p>
-                </div>
-                <div class="positioning-item">
-                    <div class="positioning-header">
-                        <div class="positioning-rank">#5</div>
-                        <h4>Nominal Demand</h4>
-                    </div>
-                    <p><strong>Nationally</strong> in nominal demand, reflecting the strong underlying demand for multifamily housing in the Austin metro area.</p>
-                </div>
-                <div class="positioning-item">
-                    <div class="positioning-header">
-                        <div class="positioning-rank">#7</div>
-                        <h4>Domestic Migration</h4>
-                    </div>
-                    <p><strong>Nationally</strong> in domestic migration, indicating continued strong in-migration patterns that support long-term multifamily demand.</p>
-                </div>
-                <div class="positioning-item">
-                    <div class="positioning-header">
-                        <div class="positioning-rank">16.8%</div>
-                        <h4>Rent Affordability</h4>
-                    </div>
-                    <p><strong>Rent-to-income ratio</strong>, maintaining the lowest ratio among major US metros and providing substantial addressable market for multifamily investment.</p>
-                </div>
-            </div>
-        </div>
+
+
+
 
 
 
@@ -978,24 +1109,7 @@
         });
         </script>
 
-        <div class="section">
-            <h3 class="section-title">Investment Environment</h3>
-            <div class="fundamentals-grid">
-                <div class="fundamental-item">
-                    <h4>27% Valuation Discount</h4>
-                    <p>Cap rates expanded <strong>27% from peak</strong> (vs 31% in GFC), creating significant acquisition opportunity. Current core cap rates: 4.25-4.75%, with compressed valuations relative to replacement cost in select markets.</p>
-                </div>
 
-                <div class="fundamental-item">
-                    <h4>$2.4B Transaction Volume</h4>
-                    <p>Austin H1 2025 volume of <strong>$2.4B</strong> with deeper bidder pools and 5-10% bid increases from first offer to award, indicating strong investor demand and competitive acquisition environment.</p>
-                </div>
-                <div class="fundamental-item">
-                    <h4>7.3% Employment Growth Projection</h4>
-                    <p>Austin projected <strong>7.3% employment growth and 17.1% GDP growth</strong> over next 5 years, significantly outperforming national averages of 2.4% and 12.1% respectively, supporting long-term investment thesis.</p>
-                </div>
-            </div>
-        </div>
 
         <div class="footer">
             <div class="footer-logo">Austin Multifamily Investment Opportunity</div>
@@ -1005,5 +1119,4 @@
         </div>
     </div>
 </body>
-</html>
 </html>
