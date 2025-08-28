@@ -54,7 +54,7 @@ export default function PipelineChart() {
           text: '2025 Remaining: 7,347 | 2026: 9,951 | 2027: 3,526 | 2028: 833',
           font: {
             size: 14,
-            weight: 'bold'
+            weight: 'bold' as const
           },
           color: '#005395'
         }
