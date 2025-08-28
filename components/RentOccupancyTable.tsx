@@ -1,7 +1,7 @@
 export default function RentOccupancyTable() {
   return (
     <section className="mb-12">
-      <h3 className="section-title">Rent & Occupancy Trends by Property Class</h3>
+      <h3 className="section-title">Effective Rent & Occupancy Trends by Property Class</h3>
       
       {/* New Clean Table Design */}
       <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
