@@ -80,98 +80,96 @@ export default function SupplyDemandRentChart() {
          }
       },
              scales: {
-         x: {
-           title: {
-             display: true,
-             text: 'Year',
-             font: {
-               size: 14,
-               weight: 'bold' as const
-             },
-             color: '#374151'
-           },
-           grid: {
-             color: '#e5e7eb',
-             lineWidth: 1
-           },
-           ticks: {
-             font: {
-               size: 12
-             },
-             color: '#6b7280'
-           }
-         },
-         y: {
-           type: 'linear' as const,
-           display: true,
-           position: 'left' as const,
-           title: {
-             display: true,
-             text: 'Units (Supply & Demand)',
-             font: {
-               size: 14,
-               weight: 'bold' as const
-             },
-             color: '#374151'
-           },
-           beginAtZero: false,
-           min: -15000,
-           max: 35000,
-           grid: {
-             color: '#e5e7eb',
-             lineWidth: 1
-           },
-                        ticks: {
-               font: {
-                 size: 12
-               },
-               color: '#6b7280',
-               callback: function(value: any) {
-                 if (value === 0) return '0';
-                 if (value === 10000) return '10,000';
-                 if (value === 20000) return '20,000';
-                 if (value === 30000) return '30,000';
-                 if (value === 35000) return '35,000';
-                 if (value === -10000) return '-10,000';
-                 if (value === -15000) return '-15,000';
-                 return value.toLocaleString();
-               }
-             }
-         },
-         y1: {
-           type: 'linear' as const,
-           display: true,
-           position: 'right' as const,
-           title: {
-             display: true,
-             text: 'Rent Growth %',
-             font: {
-               size: 14,
-               weight: 'bold' as const
-             },
-             color: '#374151'
-           },
-           beginAtZero: false,
-           min: -15,
-           max: 30,
-           grid: {
-             drawOnChartArea: false,
-           },
-           ticks: {
-             font: {
-               size: 12
-             },
-             color: '#6b7280',
-             callback: function(value: any) {
-               if (value === 0) return '0%';
-               if (value === 10) return '10%';
-               if (value === 20) return '20%';
-               if (value === -10) return '-10%';
-               return value + '%';
-             }
-           }
-         }
-       },
+        x: {
+          title: {
+            display: true,
+            text: 'Year',
+            font: {
+              size: 14,
+              weight: 'bold' as const
+            },
+            color: '#374151'
+          },
+          grid: {
+            display: false
+          },
+          ticks: {
+            font: {
+              size: 12
+            },
+            color: '#6b7280'
+          }
+        },
+        y: {
+          type: 'linear' as const,
+          display: true,
+          position: 'left' as const,
+          title: {
+            display: true,
+            text: 'Units (Supply & Demand)',
+            font: {
+              size: 14,
+              weight: 'bold' as const
+            },
+            color: '#374151'
+          },
+          beginAtZero: false,
+          min: -15000,
+          max: 35000,
+          grid: {
+            display: false
+          },
+          ticks: {
+            font: {
+              size: 12
+            },
+            color: '#6b7280',
+            callback: function(value: any) {
+              if (value === 0) return '0';
+              if (value === 10000) return '10,000';
+              if (value === 20000) return '20,000';
+              if (value === 30000) return '30,000';
+              if (value === 35000) return '35,000';
+              if (value === -10000) return '-10,000';
+              if (value === -15000) return '-15,000';
+              return value.toLocaleString();
+            }
+          }
+        },
+        y1: {
+          type: 'linear' as const,
+          display: true,
+          position: 'right' as const,
+          title: {
+            display: true,
+            text: 'Rent Growth %',
+            font: {
+              size: 14,
+              weight: 'bold' as const
+            },
+            color: '#374151'
+          },
+          beginAtZero: false,
+          min: -15,
+          max: 30,
+          grid: {
+            display: false
+          },
+          ticks: {
+            font: {
+              size: 12
+            },
+            color: '#6b7280',
+            callback: function(value: any) {
+              if (value === 0) return '0%';
+              if (value === 10) return '10%';
+              if (value === 20) return '20%';
+              if (value === -10) return '-10%';
+              return value + '%';
+            }
+          }
+        }
+      },
        elements: {
          bar: {
            borderRadius: 4
@@ -191,16 +189,12 @@ export default function SupplyDemandRentChart() {
        }
     }
 
-         try {
-       // Create new chart
-       chartInstance.current = new Chart(ctx, {
-         type: 'bar',
-         data,
-         options
-       })
-     } catch (error) {
-       console.error('Error creating chart:', error)
-     }
+    // Create new chart
+    chartInstance.current = new Chart(ctx, {
+      type: 'bar',
+      data,
+      options
+    })
 
     // Cleanup function
     return () => {

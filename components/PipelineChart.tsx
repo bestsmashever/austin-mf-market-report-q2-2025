@@ -62,6 +62,9 @@ export default function PipelineChart() {
       scales: {
         x: {
           stacked: true,
+          grid: {
+            display: false
+          },
           ticks: {
             maxRotation: 45,
             minRotation: 45,
@@ -74,8 +77,11 @@ export default function PipelineChart() {
           stacked: true,
           beginAtZero: true,
           max: 2000,
+          grid: {
+            display: false
+          },
           ticks: {
-            callback: function(value: number) {
+            callback: function(value: any) {
               return value.toLocaleString()
             }
           }

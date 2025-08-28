@@ -56,9 +56,17 @@ export default function ConstructionChart() {
         },
       },
       scales: {
+        x: {
+          grid: {
+            display: false
+          }
+        },
         y: {
           beginAtZero: true,
           max: 8000,
+          grid: {
+            display: false
+          },
           ticks: {
             callback: function(value: any) {
               return value.toLocaleString()

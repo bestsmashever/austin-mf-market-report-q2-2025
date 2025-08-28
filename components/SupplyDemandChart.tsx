@@ -64,17 +64,25 @@ export default function SupplyDemandChart() {
           text: 'H1 2025: +2,903 Units Net Absorption',
           font: {
             size: 16,
-            weight: 'bold'
+            weight: 'bold' as const
           },
           color: '#005395'
         }
       },
       scales: {
+        x: {
+          grid: {
+            display: false
+          }
+        },
         y: {
           beginAtZero: true,
           max: 35000,
+          grid: {
+            display: false
+          },
           ticks: {
-            callback: function(value: number) {
+            callback: function(value: any) {
               return value.toLocaleString()
             }
           }
