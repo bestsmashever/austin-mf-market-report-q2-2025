@@ -60,7 +60,7 @@ export default function ConstructionChart() {
           beginAtZero: true,
           max: 8000,
           ticks: {
-            callback: function(value: number) {
+            callback: function(value: any) {
               return value.toLocaleString()
             }
           }
