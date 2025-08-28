@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #ffffff;
+    color: #000000;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Arial', sans-serif;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-black mb-8 uppercase tracking-wide border-b-3 border-primary-500 pb-3;
+  }
+
+  .metric-card {
+    @apply bg-white text-black border-2 border-primary-500 p-8 text-center transition-all duration-300 shadow-lg hover:transform hover:-translate-y-1 hover:shadow-xl hover:bg-primary-500 hover:text-white;
+  }
+
+  .metric-card:hover .metric-value,
+  .metric-card:hover .metric-label {
+    @apply text-white;
+  }
+
+  .metric-card:hover .metric-context {
+    @apply text-gray-300;
+  }
+
+  .metric-value {
+    @apply text-4xl md:text-5xl font-bold text-primary-500 mb-3 tracking-tight transition-colors duration-300;
+  }
+
+  .metric-label {
+    @apply text-base text-black mb-2 font-semibold uppercase tracking-wide transition-colors duration-300;
+  }
+
+  .metric-context {
+    @apply text-sm text-gray-600 transition-colors duration-300;
+  }
+
+  .fundamental-item {
+    @apply bg-white text-black p-8 border border-primary-500 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary-600;
+  }
+
+  .fundamental-item h4 {
+    @apply text-primary-500 text-xl mb-4 font-bold;
+  }
+
+  .fundamental-item strong {
+    @apply text-primary-500 font-bold;
+  }
+
+  .chart-container {
+    @apply bg-white border-2 border-primary-500 p-6 shadow-lg mb-5;
+  }
+
+  .chart-container h4 {
+    @apply text-primary-500 text-lg mb-5 font-bold uppercase tracking-wide text-center;
+  }
+
+  .comparison-table-container {
+    @apply bg-white border-2 border-primary-500 p-8 mb-8 shadow-lg overflow-x-auto rounded-lg;
+  }
+
+  .comparison-table {
+    @apply w-full border-collapse text-base text-center;
+  }
+
+  .comparison-table th {
+    @apply bg-primary-500 text-white p-4 font-bold uppercase tracking-wide border border-primary-600;
+  }
+
+  .comparison-table th:first-child {
+    @apply text-left;
+  }
+
+  .comparison-table td {
+    @apply p-4 border border-gray-200 font-medium;
+  }
+
+  .comparison-table td:first-child {
+    @apply text-left font-bold text-primary-500;
+  }
+
+  .comparison-table tbody tr:nth-child(even) {
+    @apply bg-gray-50;
+  }
+
+  .comparison-table tbody tr:hover {
+    @apply bg-blue-50 transition-colors duration-200;
+  }
+
+  .comparison-table tbody tr:not(.total-row):hover {
+    @apply transform -translate-y-0.5 shadow-sm;
+  }
+
+  .total-row {
+    @apply bg-primary-600 text-white;
+  }
+
+  .total-row td {
+    @apply text-white font-bold border-primary-700;
+  }
+
+  .total-row td span {
+    @apply text-white font-bold;
+  }
+
+  .positive {
+    @apply text-green-600 font-bold;
+  }
+
+  .warning {
+    @apply text-red-600 font-bold;
+  }
+
+  .comparison-table td strong {
+    @apply text-primary-600;
+  }
+
+  .comparison-table .qoq-change {
+    @apply font-semibold;
+  }
+
+  .clean-list {
+    @apply list-none p-0 m-0;
+  }
+
+  .clean-list li {
+    @apply relative py-2 pl-5 mb-2 text-sm leading-relaxed text-gray-700;
+  }
+
+  .clean-list li::before {
+    content: "•";
+    @apply absolute left-0 top-2 text-primary-500 text-lg font-bold;
+  }
+
+  .clean-list li strong {
+    @apply text-primary-500 font-bold;
+  }
+
+  /* Enhanced Metric Cards with Hover Details */
+  .metric-card.enhanced {
+    @apply relative cursor-pointer overflow-hidden min-h-40;
+  }
+
+  .metric-card.enhanced:hover {
+    @apply transform -translate-y-2 shadow-2xl bg-primary-500 text-white;
+  }
+
+  .metric-details {
+    @apply absolute inset-0 bg-primary-500 text-white p-10 opacity-0 invisible transition-all duration-500 flex flex-col justify-center text-left;
+  }
+
+  .metric-card.enhanced:hover .metric-details {
+    @apply opacity-100 visible;
+  }
+
+  .metric-details .clean-list li {
+    @apply text-white mb-2 text-sm leading-tight;
+  }
+
+  .metric-details .clean-list li::before {
+    @apply text-white;
+  }
+
+  .metric-details .clean-list li strong {
+    @apply text-white font-bold;
+  }
+
+  /* Professional scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #005395;
+    border-radius: 0;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #003d70;
+  }
+}
+
+@layer utilities {
+  .border-b-3 {
+    border-bottom-width: 3px;
+  }
+}

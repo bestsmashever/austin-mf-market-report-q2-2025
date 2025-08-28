@@ -1,0 +1,231 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
+import { Chart, registerables } from 'chart.js'
+
+// Register all Chart.js components
+Chart.register(...registerables)
+
+export default function SupplyDemandRentChart() {
+  const chartRef = useRef<HTMLCanvasElement>(null)
+  const chartInstance = useRef<Chart | null>(null)
+
+  useEffect(() => {
+    if (!chartRef.current) return
+
+    // Destroy existing chart if it exists
+    if (chartInstance.current) {
+      chartInstance.current.destroy()
+    }
+
+    const ctx = chartRef.current.getContext('2d')
+    if (!ctx) return
+
+         // Chart data
+     const data = {
+       labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029'],
+       datasets: [
+         {
+           label: 'Annual Supply',
+           data: [9176, 9510, 9953, 9000, 9009, 10496, 12252, 14128, 14571, 30607, 16897, 9951, 3526, 833, 9914],
+           backgroundColor: 'rgba(26, 32, 44, 0.7)',
+           borderColor: 'rgba(26, 32, 44, 0.8)',
+           borderWidth: 1,
+           yAxisID: 'y'
+         },
+         {
+           label: 'Annual Demand',
+           data: [8181, 7595, 7130, 10471, 9697, 6104, 20357, 4303, 9088, 28841, 24906, 10000, 10000, 10000, 10000],
+           backgroundColor: 'rgba(0, 83, 149, 0.7)',
+           borderColor: 'rgba(0, 83, 149, 0.8)',
+           borderWidth: 1,
+           yAxisID: 'y'
+         },
+         {
+           label: 'Rent Growth %',
+           data: [7.5, 5, 1.5, 5, 3, -5, 25, 5, -5, -7.5, -5, 2, 5, 10, 3],
+           type: 'line' as const,
+           borderColor: '#e53e3e',
+           backgroundColor: '#e53e3e',
+           borderWidth: 4,
+           fill: false,
+           pointRadius: 6,
+           pointBackgroundColor: '#ffffff',
+           pointBorderColor: '#e53e3e',
+           pointBorderWidth: 3,
+           yAxisID: 'y1',
+           order: 0,
+                       tension: 0.4
+         }
+       ]
+     }
+
+    // Chart options
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top' as const,
+          labels: {
+            usePointStyle: true,
+            padding: 20,
+            font: {
+              size: 12,
+              weight: 'bold' as const
+            }
+          }
+        },
+                 title: {
+           display: false
+         }
+      },
+             scales: {
+         x: {
+           title: {
+             display: true,
+             text: 'Year',
+             font: {
+               size: 14,
+               weight: 'bold' as const
+             },
+             color: '#374151'
+           },
+           grid: {
+             color: '#e5e7eb',
+             lineWidth: 1
+           },
+           ticks: {
+             font: {
+               size: 12
+             },
+             color: '#6b7280'
+           }
+         },
+         y: {
+           type: 'linear' as const,
+           display: true,
+           position: 'left' as const,
+           title: {
+             display: true,
+             text: 'Units (Supply & Demand)',
+             font: {
+               size: 14,
+               weight: 'bold' as const
+             },
+             color: '#374151'
+           },
+           beginAtZero: false,
+           min: -15000,
+           max: 35000,
+           grid: {
+             color: '#e5e7eb',
+             lineWidth: 1
+           },
+                        ticks: {
+               font: {
+                 size: 12
+               },
+               color: '#6b7280',
+               callback: function(value: any) {
+                 if (value === 0) return '0';
+                 if (value === 10000) return '10,000';
+                 if (value === 20000) return '20,000';
+                 if (value === 30000) return '30,000';
+                 if (value === 35000) return '35,000';
+                 if (value === -10000) return '-10,000';
+                 if (value === -15000) return '-15,000';
+                 return value.toLocaleString();
+               }
+             }
+         },
+         y1: {
+           type: 'linear' as const,
+           display: true,
+           position: 'right' as const,
+           title: {
+             display: true,
+             text: 'Rent Growth %',
+             font: {
+               size: 14,
+               weight: 'bold' as const
+             },
+             color: '#374151'
+           },
+           beginAtZero: false,
+           min: -15,
+           max: 30,
+           grid: {
+             drawOnChartArea: false,
+           },
+           ticks: {
+             font: {
+               size: 12
+             },
+             color: '#6b7280',
+             callback: function(value: any) {
+               if (value === 0) return '0%';
+               if (value === 10) return '10%';
+               if (value === 20) return '20%';
+               if (value === -10) return '-10%';
+               return value + '%';
+             }
+           }
+         }
+       },
+       elements: {
+         bar: {
+           borderRadius: 4
+         },
+         line: {
+           borderWidth: 4
+         },
+         point: {
+           radius: 6
+         }
+       },
+       layout: {
+         padding: {
+           top: 20,
+           bottom: 20
+         }
+       }
+    }
+
+         try {
+       // Create new chart
+       chartInstance.current = new Chart(ctx, {
+         type: 'bar',
+         data,
+         options
+       })
+     } catch (error) {
+       console.error('Error creating chart:', error)
+     }
+
+    // Cleanup function
+    return () => {
+      if (chartInstance.current) {
+        chartInstance.current.destroy()
+      }
+    }
+  }, [])
+
+  return (
+         <section className="mb-12">
+              <div className="chart-container">
+          <h4>Amidst record supply, Austin also sees record demand.</h4>
+          <h4>Positive rent growth can be expected as new supply continues to taper.</h4>
+         <div className="relative">
+           <canvas ref={chartRef} width={800} height={400} />
+           {/* Projection Box Overlay */}
+           <div className="absolute inset-0 pointer-events-none">
+             <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-r from-transparent via-blue-50/30 to-blue-100/40 border-l-2 border-dashed border-blue-300"></div>
+             <div className="absolute right-4 top-4 bg-blue-600 text-white px-3 py-1 rounded-lg text-sm font-semibold shadow-lg">
+                               Presidium Projections
+             </div>
+           </div>
+         </div>
+       </div>
+    </section>
+  )
+}
