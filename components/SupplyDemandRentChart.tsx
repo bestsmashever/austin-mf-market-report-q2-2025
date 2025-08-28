@@ -35,7 +35,7 @@ export default function SupplyDemandRentChart() {
          },
          {
            label: 'Annual Demand',
-           data: [8181, 7595, 7130, 10471, 9697, 6104, 20357, 4303, 9088, 28841, 24906, 10000, 10000, 10000, 10000],
+           data: [8181, 7595, 7130, 10471, 9697, 6104, 20357, 4303, 9088, 28841, 24906, 15000, 15000, 15000, 15000],
            backgroundColor: 'rgba(0, 83, 149, 0.7)',
            borderColor: 'rgba(0, 83, 149, 0.8)',
            borderWidth: 1,
@@ -43,7 +43,7 @@ export default function SupplyDemandRentChart() {
          },
          {
            label: 'Rent Growth %',
-           data: [7.5, 5, 1.5, 5, 3, -5, 25, 5, -5, -7.5, -5, 2, 5, 10, 3],
+           data: [7.5, 5, 1.5, 5, 3, -5, 25, 5, -5, -7.5, -5, 2, 5, 10, 5],
            type: 'line' as const,
            borderColor: '#e53e3e',
            backgroundColor: '#e53e3e',
@@ -55,7 +55,7 @@ export default function SupplyDemandRentChart() {
            pointBorderWidth: 3,
            yAxisID: 'y1',
            order: 0,
-                       tension: 0.4
+           tension: 0.4
          }
        ]
      }
